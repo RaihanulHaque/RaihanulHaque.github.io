@@ -216,24 +216,32 @@ main section ul li a i{
 .about{
   background-color:#51d0de;
   color:#fff;
-  text-decoration:none;
 }
 .about h2{
   text-align:center;
   padding-top:10px;
+  color:#fff;
 }
 .about .about_inside{
   display:flex;
   align-items:center;
 }
+.about .about_inside .text h4,h5{
+  color:#fff;
+}
 .about .about_inside .text .button{
     background-color:#4876ff;
+    text-decoration:none;
     width:300px;
     margin-top:10px;
     margin-bottom:15px;
     padding:10px 8px 10px 8px;
     text-align:center;
     border-radius:10px;
+  }
+.about .about_inside .text .button a{
+    text-decoration:none;
+    color:#fff;
   }
 @media screen and (max-width: 900px){
   .about .about_inside{
@@ -247,7 +255,9 @@ main section ul li a i{
     width: 50%;
   }
   .about .about_inside .text h4,h5{
+    margin-top:5px;
     text-align:center;
+    color:#fff;
   }
   .about .about_inside .text .button{
     background-color:#4876ff;
@@ -260,7 +270,11 @@ main section ul li a i{
     padding:10px 8px 10px 8px;
     border-radius:10px;
   }
-  .about .about_inside .text p{
+  .about .about_inside .text .button a{
+    text-decoration:none;
+    color:#fff;
+  }
+  .about .about_inside .text .bio{
     margin:0 10px 0 18px;
   }
 }
@@ -322,8 +336,8 @@ main section ul li a i{
     <div class="text">
       <h4>RAIHANUL HAQUE RAHI</h4>
       <h5>Student and Web developer in Bangladesh</h5>
-      <p class="button"><i class="fas fa-code"></i>View my repo</p>
-      <p>Greetings, I’m Raihanul Haque. I’m a student living in Bangladesh. I am a fan of technology, programming, and web development. I’m also interested in movies. You can view my repo with a click on the button above.</p>
+      <p class="button"><a href="https://github.com/RaihanulHaque"><i class="fas fa-code"></i>View my repo</a></p>
+      <p class="bio">Greetings, I’m Raihanul Haque. I’m a student living in Bangladesh. I am a fan of technology, programming, and web development. I’m also interested in movies. You can view my repo with a click on the button above.</p>
       
     </div>
   </div>
