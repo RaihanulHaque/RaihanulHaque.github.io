@@ -23,7 +23,7 @@ header{
   position:absolute;
   top:0;
   left:0;
-  background-color:#152238;;
+  background-color:#152238;
   padding:0 20px;
   width:100%;
   box-sizing:border-box;
@@ -213,6 +213,57 @@ main section ul li a i{
   font-size:25px;
   color:white;
 }
+.about{
+  background-color:#51d0de;
+  color:#fff;
+  text-decoration:none;
+}
+.about h2{
+  text-align:center;
+  padding-top:10px;
+}
+.about .about_inside{
+  display:flex;
+  align-items:center;
+}
+.about .about_inside .text .button{
+    background-color:#4876ff;
+    width:300px;
+    margin-top:10px;
+    margin-bottom:15px;
+    padding:10px 8px 10px 8px;
+    text-align:center;
+    border-radius:10px;
+  }
+@media screen and (max-width: 900px){
+  .about .about_inside{
+    display:block;
+    
+  }
+  .about .about_inside .image img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .about .about_inside .text h4,h5{
+    text-align:center;
+  }
+  .about .about_inside .text .button{
+    background-color:#4876ff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top:10px;
+    margin-bottom:15px;
+    text-align:center;
+    padding:10px 8px 10px 8px;
+    border-radius:10px;
+  }
+  .about .about_inside .text p{
+    margin:0 10px 0 18px;
+  }
+}
 </style>
 
 </head>
@@ -245,9 +296,9 @@ main section ul li a i{
   <section class="presentation">
     <div class="introduction">
       <div class="intro_text">
-        <h2>Hello, I'm</h2>
+        <h2>Hey! I'm</h2>
         <h1>Raihanul Haque</h1>
-        <h4>I'm Full Stack Web Developer</h4>
+        <h4>Full Stack Web Developer</h4>
         <p class="button">Hire Me</p>
         <ul class="contact">
         <li><a href="https://www.facebook.com/CoderRahi" ><i class="fab fa-facebook"></i></a></li>
@@ -262,5 +313,20 @@ main section ul li a i{
     </div>
   </section>
 </main>
+<section class="about">
+  <h2>About</h2>
+  <div class="about_inside">
+    <div class="image">
+      <img src="VALI2.png">
+    </div>
+    <div class="text">
+      <h4>RAIHANUL HAQUE RAHI</h4>
+      <h5>Student and Web developer in Bangladesh</h5>
+      <p class="button"><i class="fas fa-code"></i>View my repo</p>
+      <p>Greetings, I’m Raihanul Haque. I’m a student living in Bangladesh. I am a fan of technology, programming, and web development. I’m also interested in movies. You can view my repo with a click on the button above.</p>
+      
+    </div>
+  </div>
+</section>
 </body>
 </html>
