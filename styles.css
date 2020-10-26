@@ -202,6 +202,7 @@ main section ul li a i{
   color:#fff;
 }
 .about h2{
+  font-family: 'Baumans', cursive;
   text-align:center;
   padding-top:10px;
   color:#fff;
@@ -269,6 +270,7 @@ main section ul li a i{
   height:500px;
 }
 .skills h2{
+  font-family: 'Baumans', cursive;
   text-align:center;
   color:white;
   padding-top:10px;
@@ -315,13 +317,13 @@ main section ul li a i{
 .skills .cards .circle:hover .box{
     transform: translate(-50%, -50%) scale(0.91);
     }
-.skills.cards .circle .box span,
-.skills .cards .text{
+.skills.cards .circle .box span,.skills .cards .text{
+    font-family: 'Varela Round', sans-serif;
     color:white;
     }
     .circle .box span{
     font-size: 38px;
-    font-family: sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-weight: 600;
     transform: translate(-45%, -45%);
     transition: all 0.1s;
@@ -342,3 +344,60 @@ main section ul li a i{
   margin-bottom: 20px;
   }
  }
+footer{
+  background-color:black;
+  color:#fff;
+  padding-bottom:15px;
+}
+footer .address_contact{
+  display:flex;
+  justify-content:space-evenly;
+}
+footer h2{
+  font-family: 'Baumans', cursive;
+  padding-top:10px;
+  text-align:center;
+}
+footer address{
+  text-align:center;
+  font-style:italic;
+  font-size:20px;
+}
+footer .contact{
+  text-align:center;
+}
+footer .contact .mail,footer .contact .phone{
+  font-size:20px;
+  
+}
+footer .contact .mail a{
+  text-decoration:none;
+}
+footer .contact ul{
+  display:flex;
+  justify-content : space-evenly;
+}
+footer .contact ul li{
+  list-style:none;
+  padding-right:20px;
+}
+footer .contact ul li a{
+  text-decoration:none;
+}
+footer .contact ul li a i{
+  font-size:20px;
+  color:#fff;
+  width:30px;
+}
+footer .copy{
+  text-align:center;
+}
+@media (max-width: 900px){
+  footer .address_contact{
+    display:block;
+    width:100%;
+  }
+  footer .contact ul li a i{
+    font-size:25px;
+  }
+}
