@@ -32,6 +32,7 @@ body{
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none;/* Internet Explorer */
 }
+
 /* all similar content styling codes */
 section{
     padding: 100px 0;
@@ -173,8 +174,10 @@ section .title::after{
 /* home section styling */
 .home{
     display: flex;
-    background: url("images/banner.jpeg") no-repeat center;
-    height: 100vh;
+    /*background: url("images/banner.jpeg") no-repeat center;*/
+    background: #060328;
+    height: 700px;
+    width: 100%;
     color: #fff;
     min-height: 500px;
     background-size: cover;
@@ -201,7 +204,7 @@ section .title::after{
     color: crimson;
     font-weight: 500;
 }
-.home .home-content a{
+.home .home-content .hire{
     display: inline-block;
     background: crimson;
     color: #fff;
@@ -213,9 +216,37 @@ section .title::after{
     border: 2px solid crimson;
     transition: all 0.3s ease;
 }
-.home .home-content a:hover{
-    color: crimson;
-    background: none;
+.social ul {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.social ul li {
+    list-style: none;
+    margin: 0 8px;
+}
+.social ul li i {
+    color:#F4F5FF;
+    font-size: 28px;
+    transition: .5s;
+}
+.social ul li a {
+    text-decoration: none;
+    text-align: center;
+    transition: 0.5s;
+    transform: translate(0,0px);
+}
+.social ul li i:hover {
+    transform: rotate(0deg) skew(0deg) translate(0, -15px);
+}
+
+svg{
+    width: 100%;
+    margin-top: -2px;
 }
 
 /* about section styling */
@@ -394,6 +425,9 @@ section .title::after{
 }
 
 /* teams section styling */
+teams{
+  
+}
 .teams h2 {
   margin-top: -55px;
 }
@@ -402,6 +436,7 @@ section .title::after{
 }
 .teams .carousel .card{
     background: #222;
+    height: 290px;
     border-radius: 6px;
     padding: 25px 35px;
     text-align: center;
@@ -458,12 +493,76 @@ section .title::after{
 .owl-dot:hover{
     background: crimson!important;
 }
+/*projects section styling*/
+.projects{
+    
+}
+.projects h2{
+    margin-top: -55px;
+}
+.projects .title::after{
+    content: "What I made";
+}
+.projects .carousel .card{
+     background: #222;
+     border-radius: 6px;
+     padding: 25px 35px;
+     height: 200px;
+     text-align: center;
+     overflow: hidden;
+     transition: all 0.3s ease;
+}
+.projects .carousel .card:hover{
+    
+}
+.projects  .carousel .card .box{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.projects .carousel .card:hover .box{
+    transform: scale(1.05)
+}
+.projects .carousel .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
 
+.projects .owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+.projects .owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none!important;
+    border-radius: 50%;
+    border: 2px solid darkblue!important;
+    transition: all 0.3s ease;
+}
+.projects .owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+}
+.projects .owl-dot.active,
+.projects .owl-dot:hover{
+    background: darkblue!important;
+}
 /* contact section styling */
+.contact{
+  background: #111;
+  color:#fff;
+}
 .contact h2 {
   margin-top: -55px;
 }
 .contact .title::after{
+    background: #111;
     content: "Assalamualikum";
 }
 .contact .contact-content .column{
@@ -490,13 +589,13 @@ section .title::after{
 }
 .contact .contact-content .row i{
     font-size: 25px;
-    color: crimson;
+    color: #6291FF;
 }
 .contact .contact-content .info .head{
     font-weight: 500;
 }
 .contact .contact-content .info .sub-title{
-    color: #333;
+    color: #fff;
 }
 .contact .right form .fields{
     display: flex;
@@ -562,12 +661,14 @@ section .title::after{
 /* footer section styling */
 footer{
     background: #111;
+    margin-top: -50px;
     padding: 15px 23px;
     color: #fff;
     text-align: center;
 }
+
 footer span a{
-    color: crimson;
+    color: #A2A9FE;
     text-decoration: none;
 }
 footer span a:hover{
@@ -656,7 +757,6 @@ footer span a:hover{
     .skills .skills-content .column,
     .contact .contact-content .column{
         width: 100%;
-        margin-bottom: 35px;
     }
 }
 
