@@ -549,12 +549,20 @@ teams{
 .projects .carousel .card:hover .box{
     transform: scale(1.05)
 }
-.projects .carousel .card .text{
+.projects .carousel .card .box .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
-
+.projects .carousel .card .box a{
+    text-decoration: none;
+    margin-top: 25px;
+    padding: 8px;
+    color: #fff;
+    background-color: #8A94F8;
+    border-radius: 8px;
+    
+}
 .projects .owl-dots{
     text-align: center;
     margin-top: 20px;
