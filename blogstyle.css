@@ -1,6 +1,7 @@
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -180,6 +181,9 @@ section .title::after{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+img{
+    width: 100%;
+}
 
 .blog{
     background: #e9ebea;
@@ -201,7 +205,7 @@ section .title::after{
 }
 .blog .row .card:hover{
     cursor: pointer;
-    transform: scale(1.06);
+    transform: scale(1.045);
     transition: 0.3s;
 }
 .blog .row .card img{
@@ -214,11 +218,12 @@ section .title::after{
     padding: 2px 11px 2px 11px;
 }
 .blog .row .card .content .date{
-    color:#9CB3FF;
+    color:#648282
     font-weight: 500;
     margin-bottom: 14px;
 }
 .blog .row .card .content .header{
+    font-family: Helvetica, sans-serif;
     font-size: 26px;
     font-weight: 400;
     margin-bottom: 18px;
@@ -228,7 +233,7 @@ section .title::after{
     color:black;
 }
 .blog .row .card .content .info{
-    font-family: "lato";
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 12px;
 }
 .blog .row .card .content .tag{

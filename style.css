@@ -1,6 +1,7 @@
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -241,6 +242,7 @@ section .title::after{
     transform: translate(0,0px);
 }
 .social ul li i:hover {
+    background-color: inherit;
     transform: rotate(0deg) skew(0deg) translate(0, -15px);
 }
 
@@ -288,12 +290,13 @@ svg{
     padding: 10px 30px;
     margin-top: 20px;
     border-radius: 6px;
-    border: 2px solid #141C75;
+    
     transition: all 0.3s ease;
 }
 .about .about-content .right a:hover{
     color: #141C75;
     background: none;
+    border: 2px solid #141C75;
 }
 
 /* services section styling */
