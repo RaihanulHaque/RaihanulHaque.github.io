@@ -92,12 +92,12 @@ section .title::after{
     position: fixed;
     width: 100%;
     z-index: 999;
-    padding: 30px 0;
+    padding: 20px 0;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
 }
 .navbar.sticky{
-    padding: 15px 0;
+    padding: 12px 0;
     background: #67BAEB;
 }
 .navbar .max-width{
@@ -109,7 +109,8 @@ section .title::after{
     text-decoration: none;
 }
 .navbar .logo img{
-    margin-top: 6px;
+    margin-top: 7px;
+    margin-left: -15px;
     height: 37.5px;
 }
 /*.navbar .logo a{
