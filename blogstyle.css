@@ -99,9 +99,10 @@ section .title::after{
     font-weight: 650;
     letter-spacing:5px;
 }
-.navbar .logo a span{
-    color:#558BEF ;
-    transition: all 0.3s ease;
+.navbar .logo img {
+    margin-top: 7px;
+    margin-left: -15px;
+    height: 37.5px;
 }
 .navbar.sticky .logo a span{
     color: #fff;
