@@ -149,7 +149,8 @@
   var counters = $all('[data-count]');
   function renderCount(el, v) {
     var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
-    el.textContent = v.toFixed(dec) + (el.getAttribute('data-suffix') || '');
+    var unit = (el.getAttribute('data-suffix') || '').trim();
+    el.innerHTML = v.toFixed(dec) + (unit ? '<span class="unit">' + unit + '</span>' : '');
   }
   function runCount(el) {
     var target = parseFloat(el.getAttribute('data-count'));

@@ -286,21 +286,26 @@
             </div>
           </article>
 
-          <!-- Systole -->
+          <!-- Krishok leaf-disease classifier -->
           <article class="card spot" data-reveal style="--d:2">
-            <div class="card__visual ppg" aria-hidden="true">
-              <svg viewBox="0 0 400 150" preserveAspectRatio="none" class="ppg__svg">
-                <path class="ppg__grid" d="M0 37.5H400M0 75H400M0 112.5H400"/>
-                <path class="ppg__wave" d="M0 95 C15 95 20 40 35 40 C45 40 50 70 58 70 C64 70 66 62 72 62 C82 62 88 95 100 95 C115 95 120 40 135 40 C145 40 150 70 158 70 C164 70 166 62 172 62 C182 62 188 95 200 95 C215 95 220 40 235 40 C245 40 250 70 258 70 C264 70 266 62 272 62 C282 62 288 95 300 95 C315 95 320 40 335 40 C345 40 350 70 358 70 C364 70 366 62 372 62 C382 62 388 95 400 95"/>
+            <div class="card__visual tree" aria-hidden="true">
+              <svg viewBox="0 0 400 200" class="tree__svg">
+                <path class="tree__leaf" d="M44 100c0-26 22-44 52-44 0 30-20 52-46 52M50 108l30-30"/>
+                <path class="tree__edge" d="M104 100H150"/>
+                <rect class="tree__node" x="150" y="86" width="64" height="28" rx="7"/>
+                <text x="182" y="104" class="tree__lbl">crop</text>
+                <g class="tree__br b1"><path class="tree__edge" d="M214 100C240 100 240 48 266 48H284"/><rect class="tree__node" x="284" y="36" width="76" height="24" rx="6"/><text x="322" y="52" class="tree__lbl">potato</text></g>
+                <g class="tree__br b2"><path class="tree__edge" d="M214 100H284"/><rect class="tree__node" x="284" y="88" width="76" height="24" rx="6"/><text x="322" y="104" class="tree__lbl">rice</text></g>
+                <g class="tree__br b3"><path class="tree__edge" d="M214 100C240 100 240 152 266 152H284"/><rect class="tree__node" x="284" y="140" width="76" height="24" rx="6"/><text x="322" y="156" class="tree__lbl">tomato</text></g>
               </svg>
-              <span class="viz__tag">BLE · PPG 100 Hz</span>
+              <span class="viz__tag">99.5% end-to-end</span>
             </div>
             <div class="card__body">
-              <div class="card__meta"><span>Research prototype</span><span>Flutter · BLE</span></div>
-              <h3>Systole</h3>
-              <p>A Flutter app for continuous cuffless blood pressure. A wrist PPG sensor runs the model on-chip and streams the pulse waveform and estimates over Bluetooth LE; the app records sessions and exports them for training.</p>
+              <div class="card__meta"><span>Edge vision</span><span>FasterNet · TFLite</span></div>
+              <h3>Krishok</h3>
+              <p>A two-stage leaf-disease classifier for potato, rice, and tomato. One FasterNet-M backbone first picks the crop, then that crop's disease, at 99.5% end-to-end accuracy. Exported to ONNX and TFLite int8, it runs on Android.</p>
               <div class="links">
-                <a class="link-arrow" href="https://github.com/RaihanulHaque/systole" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="link-arrow" href="https://github.com/RaihanulHaque/krishok-ml" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
@@ -408,22 +413,31 @@
         </header>
 
         <div class="bento">
-          <a class="tile tile--paper spot" data-reveal href="https://doi.org/10.1016/j.focha.2025.100978" target="_blank" rel="noopener">
+          <div class="tile tile--paper spot" data-reveal>
             <span class="tile__kicker">Publication · Elsevier, 2025</span>
             <span class="tile__title">Diet Engine: A real-time food nutrition assistant system for personalized dietary guidance</span>
-            <span class="tile__foot"><i>Food Chemistry Advances</i> <span class="link-arrow">Read the paper <span aria-hidden="true">↗</span></span></span>
-          </a>
+            <span class="tile__foot"><i>Food Chemistry Advances</i>
+              <span class="links">
+                <a class="link-arrow" href="https://doi.org/10.1016/j.focha.2025.100978" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
+                <a class="link-arrow" href="https://github.com/RaihanulHaque/diet-engine" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+              </span>
+            </span>
+          </div>
           <div class="tile tile--kibo spot" data-reveal style="--d:1">
             <span class="tile__kicker">JAXA · Kibo RPC 2025</span>
             <span class="tile__big"><b>1st</b> in Bangladesh<br><b>4th</b> in the world</span>
             <span class="tile__foot">Programmed Astrobee robots for zero-gravity navigation and object recognition aboard the ISS.</span>
             <svg class="orbit" viewBox="0 0 200 200" aria-hidden="true"><ellipse cx="100" cy="100" rx="90" ry="34"/><circle class="sat" r="4" cx="190" cy="100"/></svg>
           </div>
-          <a class="tile spot" data-reveal style="--d:2" href="https://github.com/microsoft/VibeVoice" target="_blank" rel="noopener">
+          <div class="tile spot" data-reveal style="--d:2">
             <span class="tile__kicker">Open source</span>
-            <span class="tile__title">Contributor to Microsoft VibeVoice</span>
-            <span class="tile__foot">Package-import support for a 40k+ star voice-synthesis repo <span class="link-arrow"><span aria-hidden="true">↗</span></span></span>
-          </a>
+            <span class="tile__title">Pull requests upstream</span>
+            <ul class="prs">
+              <li><a href="https://github.com/microsoft/VibeVoice/pull/147" target="_blank" rel="noopener"><span class="pr pr--merged">merged</span><b>microsoft/VibeVoice</b><span>Module imports for a 40k+ star voice model</span></a></li>
+              <li><a href="https://github.com/Neywa-Labs/mlx-audio-swift/pull/145" target="_blank" rel="noopener"><span class="pr pr--merged">merged</span><b>mlx-audio-swift</b><span>Parakeet int8 compatibility fix</span></a></li>
+              <li><a href="https://github.com/ggml-org/llama.cpp/pull/30523" target="_blank" rel="noopener"><span class="pr">in review</span><b>llama.cpp</b><span>Return an error instead of aborting on oversized batches</span></a></li>
+            </ul>
+          </div>
           <a class="tile spot" data-reveal style="--d:3" href="https://codeforces.com/profile/rahi_" target="_blank" rel="noopener">
             <span class="tile__kicker">Community</span>
             <span class="tile__title">Teaching &amp; competitive programming</span>
