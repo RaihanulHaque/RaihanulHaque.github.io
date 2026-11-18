@@ -222,11 +222,157 @@
     }
     bars.appendChild(bf);
   }
-  function sizeScans() {
-    $all('.depth').forEach(function (el) { el.style.setProperty('--scan-w', (el.clientWidth - 2) + 'px'); });
+  /* ---------- Small canvases that only run while on screen ---------- */
+  function rgbOf(name) {
+    var hex = cssVar(name).replace('#', '');
+    if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(hex, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255].join(',');
   }
-  sizeScans();
-  window.addEventListener('resize', sizeScans);
+
+  function canvasLoop(canvas, setup, draw) {
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext('2d');
+    var state = { W: 0, H: 0, t: 0, colors: {} };
+    var running = false, visible = false, raf = 0, last = 0;
+    function readColors() {
+      state.colors = { accent: rgbOf('--accent'), text: rgbOf('--text'), muted: rgbOf('--muted'), good: rgbOf('--good'), line: rgbOf('--text') };
+    }
+    function resize() {
+      var r = canvas.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      state.W = Math.max(1, r.width); state.H = Math.max(1, r.height);
+      canvas.width = Math.round(state.W * dpr); canvas.height = Math.round(state.H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (setup) setup(state);
+    }
+    function frame(now) {
+      var dt = last ? Math.min(50, now - last) / 1000 : 0.016;
+      last = now; state.t += dt;
+      ctx.clearRect(0, 0, state.W, state.H);
+      draw(ctx, state);
+      if (running) raf = requestAnimationFrame(frame);
+    }
+    function start() { if (!running && visible && !document.hidden) { running = true; last = 0; raf = requestAnimationFrame(frame); } }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+
+    readColors(); resize();
+    if (reduceMotion) { state.t = 1.2; draw(ctx, state); return; }
+    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(canvas);
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    document.addEventListener('themechange', function () { readColors(); if (!running) { ctx.clearRect(0, 0, state.W, state.H); draw(ctx, state); } });
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { resize(); if (!running) draw(ctx, state); }, 150); });
+  }
+
+  /* StereoLite: a synthetic depth map lifted into a slowly turning point cloud */
+  (function () {
+    var C = 70, R = 42, pts = [];
+    function depth(u, v) {
+      var d = 1;                                                    // far wall
+      if (v > 0.6) d = Math.min(d, 1 - (v - 0.6) / 0.4 * 0.72);       // floor coming toward us
+      var du = (u - 0.3) * 1.55, dv = v - 0.5, r2 = du * du + dv * dv; // sphere
+      if (r2 < 0.045) d = Math.min(d, 0.46 - Math.sqrt(0.045 - r2) * 1.3);
+      if (u > 0.56 && u < 0.78 && v > 0.28 && v < 0.82) d = Math.min(d, 0.58); // box
+      if (u > 0.8 && u < 0.92 && v > 0.6 && v < 0.88) d = Math.min(d, 0.3);    // small box in front
+      return clamp(d, 0, 1);
+    }
+    for (var r = 0; r < R; r++) for (var c = 0; c < C; c++) {
+      var u = c / (C - 1), v = r / (R - 1);
+      pts.push([u, v, depth(u, v)]);
+    }
+    canvasLoop($('#vizDepth'), null, function (ctx, s) {
+      var a = Math.sin(s.t * 0.42) * 0.55, ca = Math.cos(a), sa = Math.sin(a);
+      var scan = (s.t * 0.18) % 1.3 - 0.15;
+      var cx = s.W / 2 + 10, cy = s.H / 2 - 8, k = Math.min(s.W, s.H * 1.7);
+      for (var i = 0; i < pts.length; i++) {
+        var p = pts[i];
+        var X = (p[0] - 0.5) * 2.4, Y = (p[1] - 0.5) * 1.45, Z = p[2] * 1.9 - 0.95;
+        var x = X * ca - Z * sa, z = X * sa + Z * ca + 3.1;
+        var f = 2.6 / z;
+        var px = cx + x * f * k * 0.36, py = cy + Y * f * k * 0.36;
+        var near = 1 - p[2];
+        var hit = Math.abs(p[0] - scan) < 0.012;
+        var alpha = hit ? 0.95 : 0.2 + near * 0.8;
+        var size = (1 + near * 1.8) * (f / 0.85);
+        ctx.fillStyle = 'rgba(' + (hit ? s.colors.good : (near > 0.25 ? s.colors.accent : s.colors.muted)) + ',' + alpha.toFixed(3) + ')';
+        ctx.fillRect(px - size / 2, py - size / 2, size, size);
+      }
+    });
+  })();
+
+  /* Playground: a heart redrawn by Fourier epicycles */
+  (function () {
+    var M = 256, K = 14, coeffs = [];
+    var zs = [];
+    for (var j = 0; j < M; j++) {
+      var t = (j / M) * Math.PI * 2;
+      var x = 16 * Math.pow(Math.sin(t), 3);
+      var y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+      zs.push([x, y]);
+    }
+    for (var n = -K; n <= K; n++) {
+      var re = 0, im = 0;
+      for (var q = 0; q < M; q++) {
+        var ang = -2 * Math.PI * n * q / M, cs = Math.cos(ang), sn = Math.sin(ang);
+        re += zs[q][0] * cs - zs[q][1] * sn;
+        im += zs[q][0] * sn + zs[q][1] * cs;
+      }
+      coeffs.push({ n: n, re: re / M, im: im / M, amp: Math.hypot(re, im) / M });
+    }
+    coeffs.sort(function (a, b) { return b.amp - a.amp; });
+    var trail = [];
+    canvasLoop($('#vizEpi'), function () { trail = []; }, function (ctx, s) {
+      var scale = Math.min(s.W, s.H) / 40, ox = s.W / 2, oy = s.H / 2 + 1 * scale;
+      var T = (s.t / 9) * Math.PI * 2;
+      var x = ox, y = oy;
+      ctx.lineWidth = 1;
+      for (var i = 0; i < coeffs.length; i++) {
+        var c = coeffs[i];
+        var ang = c.n * T, cs = Math.cos(ang), sn = Math.sin(ang);
+        var nx = x + (c.re * cs - c.im * sn) * scale;
+        var ny = y + (c.re * sn + c.im * cs) * scale;
+        if (c.amp * scale > 0.6 && c.n !== 0) {
+          ctx.strokeStyle = 'rgba(' + s.colors.muted + ',0.35)';
+          ctx.beginPath(); ctx.arc(x, y, c.amp * scale, 0, Math.PI * 2); ctx.stroke();
+          ctx.strokeStyle = 'rgba(' + s.colors.text + ',0.45)';
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(nx, ny); ctx.stroke();
+        }
+        x = nx; y = ny;
+      }
+      trail.push([x, y]);
+      if (trail.length > 520) trail.shift();
+      ctx.lineWidth = 2; ctx.lineJoin = 'round';
+      for (var p = 1; p < trail.length; p++) {
+        ctx.strokeStyle = 'rgba(' + s.colors.accent + ',' + (p / trail.length).toFixed(3) + ')';
+        ctx.beginPath(); ctx.moveTo(trail[p - 1][0], trail[p - 1][1]); ctx.lineTo(trail[p][0], trail[p][1]); ctx.stroke();
+      }
+      ctx.fillStyle = 'rgba(' + s.colors.accent + ',1)';
+      ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill();
+    });
+  })();
+
+  /* infind: type the query, then show the hits (the example from its README) */
+  (function () {
+    var qEl = $('#infindQ'), resEl = $('#infindRes');
+    if (!qEl || !resEl) return;
+    var query = 'invoice from amazon march';
+    if (reduceMotion) { qEl.textContent = query; resEl.classList.add('is-on'); return; }
+    var visible = false, busy = false;
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+    async function run() {
+      if (busy) return; busy = true;
+      while (visible) {
+        qEl.textContent = ''; resEl.classList.remove('is-on');
+        await wait(700);
+        for (var i = 0; i < query.length && visible; i++) { qEl.textContent += query[i]; await wait(45 + Math.random() * 50); }
+        await wait(350);
+        resEl.classList.add('is-on');
+        await wait(3400);
+      }
+      busy = false;
+    }
+    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) run(); }).observe(resEl.parentElement);
+  })();
 
   /* ---------- Copy email ---------- */
   var copyBtn = $('#copyMail');
@@ -275,7 +421,7 @@
       return [(n >> 16) & 255, (n >> 8) & 255, n & 255].join(',');
     }
     function readColors() {
-      try { colEmber = hexToRgb(cssVar('--ember')); colText = hexToRgb(cssVar('--text')); } catch (e) {}
+      try { colEmber = hexToRgb(cssVar('--accent')); colText = hexToRgb(cssVar('--text')); } catch (e) {}
       isLight = root.getAttribute('data-theme') === 'light';
     }
 

@@ -6,7 +6,7 @@
   <title>Rahi — AI Engineer</title>
   <meta name="description" content="Md Raihanul Haque Rahi, AI engineer in Dhaka. LLM systems for millions of users, and small models that run offline on a phone.">
   <meta name="author" content="Md Raihanul Haque Rahi">
-  <meta name="theme-color" content="#0e0c0b">
+  <meta name="theme-color" content="#0f1216">
   <link rel="canonical" href="https://raihanulhaque.github.io/">
 
   <meta property="og:type" content="website">
@@ -29,22 +29,21 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..800;1,400..600&family=Martian+Mono:wght@300..500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"><span></span></div>
-  <div class="grain" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <a class="brand" href="#top" aria-label="Rahi, back to top">
-      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M10 33V17a10 10 0 0 1 20 0" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/>
-        <circle cx="29" cy="30" r="4.2" class="ember"/>
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path class="ghost" d="M14 27V15.5c0-4 3-6.5 7-6.5h3" />
+        <path class="main" d="M10 27V15.5c0-4 3-6.5 7-6.5h3" />
       </svg>
-      <span>Rahi</span>
+      <span>rahi</span>
     </a>
     <nav class="nav__links" aria-label="Sections">
       <a href="#work" data-nav="work">Work</a>
@@ -85,8 +84,8 @@
             AI Engineer · Dhaka, Bangladesh
           </p>
           <h1 class="hero__title" aria-label="Large models for millions. Small models for one pocket.">
-            <span class="line"><span class="w" style="--d:1">Large</span> <span class="w" style="--d:2">models</span> <span class="w" style="--d:3">for</span> <em class="w" style="--d:4">millions.</em></span>
-            <span class="line"><span class="w" style="--d:5">Small</span> <span class="w" style="--d:6">models</span> <span class="w" style="--d:7">for</span> <span class="w" style="--d:8">one</span> <em class="w ember-text" style="--d:9">pocket.</em></span>
+            <span class="line"><span class="w" style="--d:1">Large</span> <span class="w" style="--d:2">models</span> <span class="w" style="--d:3">for</span> <span class="w hl" style="--d:4">millions.</span></span>
+            <span class="line"><span class="w" style="--d:5">Small</span> <span class="w" style="--d:6">models</span> <span class="w" style="--d:7">for</span> <span class="w" style="--d:8">one</span> <span class="w hl hl--accent" style="--d:9">pocket.</span></span>
           </h1>
           <p class="hero__lede load" style="--d:10">
             I'm Rahi. At Sysnova I build LLM systems for a banking app and a streaming platform.
@@ -98,7 +97,7 @@
           </div>
         </div>
 
-        <!-- Live replay of the Hishab on-device model -->
+        <!-- Replay of the Hishab on-device model -->
         <figure class="device load" style="--d:7" aria-label="Animated replay: the Hishab model turns a chat message into ledger entries on a phone">
           <div class="device__frame">
             <div class="device__bar">
@@ -112,18 +111,16 @@
             </div>
             <div class="device__meta">
               <span><b id="demoTps">0</b> tok/s</span>
-              <span>343 MB</span>
-              <span>Qwen3.5 0.8B</span>
-              <span class="offline">✈ offline</span>
+              <span>288 MB</span>
+              <span>Qwen3.5 · 20 layers</span>
+              <span class="offline">offline</span>
             </div>
           </div>
-          <figcaption>Replay of the Hishab model's output format and speed on a Pixel 8.</figcaption>
+          <figcaption>A replay of the model's real output format. Speed is the measured v13 rate on a Pixel 8.</figcaption>
         </figure>
       </div>
 
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about">
-        <span></span>
-      </a>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span></a>
     </section>
 
     <!-- ============ ABOUT ============ -->
@@ -132,9 +129,9 @@
         <div class="section__label" data-reveal><span>01</span> About</div>
         <div class="about__text">
           <p class="big" data-reveal>
-            I work on two ends of AI. One end is <em>scale</em>: chatbots, agents, and
-            recommendation systems that real people use every day. The other is the <em>edge</em>:
-            squeezing models until they run on a phone, with no server and no network.
+            I work on two ends of AI. One end is <mark>scale</mark>: chatbots, agents, and
+            recommendation systems that real people use every day. The other is the <mark>edge</mark>:
+            shrinking models until they run on a phone, with no server and no network.
           </p>
           <p data-reveal style="--d:1">
             I studied Mechatronics at RUET, which is why I care as much about the device a model runs on as the
@@ -145,7 +142,8 @@
           <h2 class="now__title"><span class="pulse"></span> Now</h2>
           <ul>
             <li><b>AI Engineer</b> at Sysnova Information Systems</li>
-            <li>Building <b>Kiln</b>, an open-source on-device LLM runtime</li>
+            <li>Building <b>Kiln</b> and the apps that run on it</li>
+            <li>Competing in the <b>IEEE SP Cup 2027</b> with FaceVitals</li>
             <li>Finishing my B.Sc. thesis, <b>StereoLite</b></li>
           </ul>
         </aside>
@@ -161,7 +159,7 @@
           <span class="stat__label">users on the OTT platform my recommender serves</span>
         </div>
         <div class="stat" role="listitem" data-reveal style="--d:2">
-          <span class="stat__num" data-count="343" data-suffix=" MB">0</span>
+          <span class="stat__num" data-count="288" data-suffix=" MB">0</span>
           <span class="stat__label">fine-tuned LLM that runs offline on a phone</span>
         </div>
         <div class="stat" role="listitem" data-reveal style="--d:3">
@@ -176,13 +174,13 @@
       <div class="wrap">
         <header class="section__head">
           <div class="section__label" data-reveal><span>02</span> Selected work</div>
-          <h2 class="section__title" data-reveal>Things I've built, <em>and what they measure.</em></h2>
+          <h2 class="section__title" data-reveal>Things I've built, <span class="muted">and what they measure.</span></h2>
         </header>
 
         <!-- Featured: Kiln -->
         <article class="feature spot" data-reveal>
           <div class="feature__copy">
-            <div class="tags"><span class="tag tag--ember">Open source</span><span class="tag">C/C++</span><span class="tag">llama.cpp</span><span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">Rust</span><span class="tag">React Native</span></div>
+            <div class="tags"><span class="tag tag--accent">Open source</span><span class="tag">C/C++</span><span class="tag">llama.cpp</span><span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">Rust</span><span class="tag">React Native</span></div>
             <h3 class="feature__title">Kiln</h3>
             <p class="feature__sub">An on-device LLM runtime for Android and desktop.</p>
             <p>
@@ -202,19 +200,63 @@
             </div>
           </div>
           <div class="feature__visual" aria-hidden="true">
-            <div class="ember-glow"></div>
+            <div class="glow"></div>
             <div class="phone phone--back"><img src="assets/img/kiln-transcribe.webp" alt="" width="440" height="978" loading="lazy" decoding="async"></div>
             <div class="phone phone--front"><img src="assets/img/kiln-chat.webp" alt="" width="440" height="978" loading="lazy" decoding="async"></div>
           </div>
         </article>
 
-        <div class="cards">
+        <!-- Built on Kiln -->
+        <h3 class="subhead" data-reveal>Built on Kiln</h3>
+        <div class="cards cards--2">
+          <!-- Hishab -->
+          <article class="card spot" data-reveal>
+            <div class="card__visual prune" aria-hidden="true">
+              <div class="prune__layers"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="cut"></i><i class="cut"></i><i></i><i></i><i class="cut"></i><i class="cut"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="prune__legend">
+                <span><b>24</b> → <b>20</b> layers</span>
+                <span><b>343</b> → <b>288 MB</b></span>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Offline app</span><span>Qwen3.5 · GGUF</span></div>
+              <h3>Hishab</h3>
+              <p>A fine-tuned Qwen3.5-0.8B that turns English, Bangla, and Banglish messages into ledger entries on the phone, with no server. The latest build removes 4 of its 24 layers and heals the rest by distillation: <b>288 MB</b> and <b>94.4%</b> exact-match, with no measurable loss from the 343 MB model.</p>
+              <div class="links">
+                <a class="link-arrow" href="https://github.com/RaihanulHaque/hishab" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="link-arrow" href="https://huggingface.co/ryuma007/hishab-qwen3.5-0.8b-pipe-signed-full-v13-trim38k-L20-GGUF" target="_blank" rel="noopener">Model <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- infind -->
+          <article class="card spot" data-reveal style="--d:1">
+            <div class="card__visual search" aria-hidden="true">
+              <div class="search__box"><span class="search__prompt">$ infind search</span> <span class="search__q" id="infindQ"></span><i class="caret"></i></div>
+              <ol class="search__res" id="infindRes">
+                <li><b>0.881*</b><span>~/Documents/aws-invoice-march.pdf</span><em>page 1</em></li>
+                <li><b>0.627</b><span>~/Documents/purchase-orders.pdf</span><em>page 1</em></li>
+              </ol>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Linux app · v0.3.0</span><span>Rust · EmbeddingGemma</span></div>
+              <h3>infind</h3>
+              <p>Describe a file, and find it. On-device search that reads text, PDFs (scanned ones too), photos, audio, and video, embeds them with a local model through Kiln, and opens the result at the right page, line, or second. Nothing leaves the machine.</p>
+              <div class="links">
+                <a class="link-arrow" href="https://github.com/RaihanulHaque/infind" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- More work -->
+        <h3 class="subhead" data-reveal>More work</h3>
+        <div class="cards cards--3">
           <!-- StereoLite -->
           <article class="card spot" data-reveal>
-            <div class="card__visual depth" aria-hidden="true">
-              <div class="depth__map"></div>
-              <div class="depth__scan"></div>
-              <span class="depth__lbl depth__lbl--l">L</span><span class="depth__lbl depth__lbl--r">R</span>
+            <div class="card__visual">
+              <canvas class="viz" id="vizDepth" aria-hidden="true"></canvas>
+              <span class="viz__tag" aria-hidden="true">disparity → depth</span>
             </div>
             <div class="card__body">
               <div class="card__meta"><span>B.Sc. thesis</span><span>PyTorch · ONNX</span></div>
@@ -223,42 +265,81 @@
             </div>
           </article>
 
-          <!-- Hishab -->
+          <!-- FaceVitals -->
           <article class="card spot" data-reveal style="--d:1">
-            <div class="card__visual hishab" aria-hidden="true">
-              <div class="hb__bubble">basha vara dilam 12000</div>
-              <div class="hb__arrow">↓</div>
-              <div class="hb__row"><span>rent</span><b>−৳12,000</b></div>
+            <div class="card__visual face" aria-hidden="true">
+              <svg viewBox="0 0 200 150" class="face__svg">
+                <ellipse class="face__head" cx="100" cy="72" rx="36" ry="46"/>
+                <rect class="face__roi" x="82" y="36" width="36" height="14" rx="3"/>
+                <rect class="face__roi r2" x="72" y="76" width="18" height="14" rx="3"/>
+                <rect class="face__roi r3" x="110" y="76" width="18" height="14" rx="3"/>
+                <path class="face__pulse" d="M0 136 H60 l6 -8 l6 16 l7 -26 l6 18 h40 l6 -8 l6 16 l7 -26 l6 18 H200"/>
+              </svg>
             </div>
             <div class="card__body">
-              <div class="card__meta"><span>Offline app</span><span>Qwen3.5 · GGUF · Kiln</span></div>
-              <h3>Hishab</h3>
-              <p>A fine-tuned Qwen3.5-0.8B that turns English, Bangla, and Banglish messages into ledger entries, fully on the phone. Vocabulary trimmed from 248k to 38k tokens: 343 MB, about 51 tok/s, 94.2% exact-match.</p>
+              <div class="card__meta"><span>IEEE SP Cup 2027</span><span>rPPG · PyTorch</span></div>
+              <h3>FaceVitals</h3>
+              <p>Contactless heart rate, SpO₂, and blood pressure from an ordinary face video. Face landmarks pick the forehead and cheeks, then classic rPPG and TS-CAN read the pulse from tiny colour changes in the skin.</p>
+              <div class="links">
+                <a class="link-arrow" href="https://github.com/RaihanulHaque/facevitals" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Systole -->
+          <article class="card spot" data-reveal style="--d:2">
+            <div class="card__visual ppg" aria-hidden="true">
+              <svg viewBox="0 0 400 150" preserveAspectRatio="none" class="ppg__svg">
+                <path class="ppg__grid" d="M0 37.5H400M0 75H400M0 112.5H400"/>
+                <path class="ppg__wave" d="M0 95 C15 95 20 40 35 40 C45 40 50 70 58 70 C64 70 66 62 72 62 C82 62 88 95 100 95 C115 95 120 40 135 40 C145 40 150 70 158 70 C164 70 166 62 172 62 C182 62 188 95 200 95 C215 95 220 40 235 40 C245 40 250 70 258 70 C264 70 266 62 272 62 C282 62 288 95 300 95 C315 95 320 40 335 40 C345 40 350 70 358 70 C364 70 366 62 372 62 C382 62 388 95 400 95"/>
+              </svg>
+              <span class="viz__tag">BLE · PPG 100 Hz</span>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Research prototype</span><span>Flutter · BLE</span></div>
+              <h3>Systole</h3>
+              <p>A Flutter app for continuous cuffless blood pressure. A wrist PPG sensor runs the model on-chip and streams the pulse waveform and estimates over Bluetooth LE; the app records sessions and exports them for training.</p>
+              <div class="links">
+                <a class="link-arrow" href="https://github.com/RaihanulHaque/systole" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <!-- AgriSense -->
           <article class="card spot" data-reveal>
-            <div class="card__visual field" aria-hidden="true">
-              <div class="plots"></div>
-            </div>
+            <div class="card__visual field" aria-hidden="true"><div class="plots"></div></div>
             <div class="card__body">
-              <div class="card__meta"><span>IUT Hackathon</span><span>LangGraph · RAG · FastAPI</span></div>
+              <div class="card__meta"><span>IUT Hackathon</span><span>LangGraph · RAG</span></div>
               <h3>AgriSense</h3>
               <p>A multi-agent system that plans a farmer's season, from costs to weather, and keeps advising as it goes. Built on real government soil and crop data by district, plus a leaf-disease classifier.</p>
-              <a class="link-arrow" href="https://agrisense.cortextech.dev/" target="_blank" rel="noopener">Live site <span aria-hidden="true">↗</span></a>
+              <div class="links">
+                <a class="link-arrow" href="https://agrisense.cortextech.dev/" target="_blank" rel="noopener">Live site <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </article>
 
           <!-- Gesprek -->
           <article class="card spot" data-reveal style="--d:1">
-            <div class="card__visual wave" aria-hidden="true">
-              <div class="bars"></div>
-            </div>
+            <div class="card__visual wave" aria-hidden="true"><div class="bars"></div></div>
             <div class="card__body">
-              <div class="card__meta"><span>Archived</span><span>FastAPI · LiveKit · ElevenLabs</span></div>
+              <div class="card__meta"><span>Archived</span><span>FastAPI · LiveKit</span></div>
               <h3>Gesprek</h3>
               <p>A voice-agent platform with configurable multi-agent workflows, real-time TTS, auth, and subscriptions. Launched, then archived when it couldn't raise enough funding to go to market.</p>
+            </div>
+          </article>
+
+          <!-- Playground -->
+          <article class="card spot" data-reveal style="--d:2">
+            <div class="card__visual">
+              <canvas class="viz" id="vizEpi" aria-hidden="true"></canvas>
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>Playground</span><span>Plain JS · three.js</span></div>
+              <h3>Math, for fun</h3>
+              <ul class="play">
+                <li><a href="https://raihanulhaque.github.io/fourier-epicycles/" target="_blank" rel="noopener"><b>Fourier Epicycles</b> <span aria-hidden="true">↗</span></a><span>Draw any shape, or type your name, and watch spinning circles rebuild it.</span></li>
+                <li><a href="https://github.com/RaihanulHaque/kaaba-beam" target="_blank" rel="noopener"><b>Kaaba Beam</b> <span aria-hidden="true">↗</span></a><span>A 3D page that tracks where a beam from the Kaaba points in space, with real orbital mechanics.</span></li>
+              </ul>
             </div>
           </article>
         </div>
@@ -270,7 +351,7 @@
       <div class="wrap">
         <header class="section__head">
           <div class="section__label" data-reveal><span>03</span> Experience</div>
-          <h2 class="section__title" data-reveal>Where I've <em>worked.</em></h2>
+          <h2 class="section__title" data-reveal>Where I've <span class="muted">worked.</span></h2>
         </header>
 
         <ol class="timeline" id="timeline">
@@ -281,7 +362,7 @@
               <ul>
                 <li>Built a RAG chatbot for Prime Bank's mobile financial service Lenden, which has around 700k users, and a recommendation engine for the Deepto Play OTT platform (8.7M total, 1M active users).</li>
                 <li>Built an internal AI coding gateway on LiteLLM and OpenRouter that routes each request to cheap, mid, or strong models, with per-developer keys and budgets.</li>
-                <li>Built an AI agent for LibreOffice Writer and Calc that automates spreadsheet and document work.</li>
+                <li>Built Libre Thinker: AI help inside LibreOffice Writer and Calc, served through a self-hosted gateway so no office PC ever holds a provider key.</li>
               </ul>
             </div>
           </li>
@@ -323,7 +404,7 @@
       <div class="wrap">
         <header class="section__head">
           <div class="section__label" data-reveal><span>04</span> Research &amp; recognition</div>
-          <h2 class="section__title" data-reveal>Papers, contests, <em>and open source.</em></h2>
+          <h2 class="section__title" data-reveal>Papers, contests, <span class="muted">and open source.</span></h2>
         </header>
 
         <div class="bento">
@@ -343,11 +424,11 @@
             <span class="tile__title">Contributor to Microsoft VibeVoice</span>
             <span class="tile__foot">Package-import support for a 40k+ star voice-synthesis repo <span class="link-arrow"><span aria-hidden="true">↗</span></span></span>
           </a>
-          <div class="tile spot" data-reveal style="--d:3">
+          <a class="tile spot" data-reveal style="--d:3" href="https://codeforces.com/profile/rahi_" target="_blank" rel="noopener">
             <span class="tile__kicker">Community</span>
             <span class="tile__title">Teaching &amp; competitive programming</span>
-            <span class="tile__foot">Led RUET's coding club, taught C/C++ to first-years, Codeforces Pupil (1280), and the Rahi 404 YouTube channel.</span>
-          </div>
+            <span class="tile__foot">Led RUET's coding club, taught C/C++ to first-years, Codeforces Pupil (1280), and the Rahi 404 YouTube channel. <span class="link-arrow"><span aria-hidden="true">↗</span></span></span>
+          </a>
         </div>
       </div>
     </section>
@@ -357,7 +438,7 @@
       <div class="wrap">
         <header class="section__head">
           <div class="section__label" data-reveal><span>05</span> Toolkit</div>
-          <h2 class="section__title" id="toolkitTitle" data-reveal>What I <em>reach for.</em></h2>
+          <h2 class="section__title" id="toolkitTitle" data-reveal>What I <span class="muted">reach for.</span></h2>
         </header>
       </div>
       <div class="marquee" data-reveal>
@@ -371,10 +452,10 @@
         </div>
         <div class="marquee__track marquee__track--rev">
           <ul>
-            <li>C/C++</li><li>Rust</li><li>Kotlin</li><li>Flutter</li><li>Swift</li><li>PostgreSQL</li><li>Redis</li><li>Supabase</li><li>Docker</li><li>LiveKit</li><li>WebRTC</li><li>YOLO</li><li>GGUF</li>
+            <li>C/C++</li><li>Rust</li><li>Kotlin</li><li>Flutter</li><li>Swift</li><li>PostgreSQL</li><li>Redis</li><li>Supabase</li><li>Docker</li><li>LiveKit</li><li>Modal</li><li>OpenCV</li><li>GGUF</li>
           </ul>
           <ul aria-hidden="true">
-            <li>C/C++</li><li>Rust</li><li>Kotlin</li><li>Flutter</li><li>Swift</li><li>PostgreSQL</li><li>Redis</li><li>Supabase</li><li>Docker</li><li>LiveKit</li><li>WebRTC</li><li>YOLO</li><li>GGUF</li>
+            <li>C/C++</li><li>Rust</li><li>Kotlin</li><li>Flutter</li><li>Swift</li><li>PostgreSQL</li><li>Redis</li><li>Supabase</li><li>Docker</li><li>LiveKit</li><li>Modal</li><li>OpenCV</li><li>GGUF</li>
           </ul>
         </div>
       </div>
@@ -384,7 +465,7 @@
     <section class="section contact" id="contact">
       <div class="wrap contact__inner">
         <div class="section__label" data-reveal><span>06</span> Contact</div>
-        <h2 class="contact__title" data-reveal>Have something worth <em>building?</em></h2>
+        <h2 class="contact__title" data-reveal>Have something worth <span class="hl hl--accent">building?</span></h2>
         <p class="contact__lede" data-reveal>Always happy to talk about AI engineering, or an interesting problem at either end: scale or the edge.</p>
 
         <div class="contact__mail" data-reveal>
@@ -397,6 +478,8 @@
         <ul class="socials" data-reveal>
           <li><a href="https://github.com/RaihanulHaque" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
           <li><a href="https://linkedin.com/in/raihanulhaque" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://kaggle.com/rahi007" target="_blank" rel="noopener">Kaggle <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://codeforces.com/profile/rahi_" target="_blank" rel="noopener">Codeforces <span aria-hidden="true">↗</span></a></li>
           <li><a href="assets/Md-Raihanul-Haque-Rahi-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF) <span aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
