@@ -592,7 +592,7 @@ mark { background: none; color: var(--accent); }
   display: flex; flex-direction: column; gap: 14px;
   padding: 26px; border-radius: calc(var(--radius) + 4px);
   border: 1px solid var(--line); background: var(--surface);
-  overflow: hidden; min-height: 220px;
+  overflow: hidden; min-height: 0;
   transition: border-color .4s, transform .6s var(--ease-out);
 }
 a.tile:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); transform: translateY(-4px); }
