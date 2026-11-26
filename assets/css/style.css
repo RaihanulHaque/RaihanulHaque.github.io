@@ -552,19 +552,14 @@ mark { background: none; color: var(--accent); }
 .play a b { font-weight: 600; }
 .play li > span { font-size: 14px; color: var(--text-2); line-height: 1.5; }
 
-/* llama.cpp speedup chart: ranges grow in when the tile reveals */
+/* llama.cpp speedup chart: static ranges on a 1x to 14x scale */
 .tile--wide { grid-column: span 6; }
-.speed { display: grid; gap: 14px; margin-top: 6px; }
+.tile--wide .tile__foot { display: block; }
+.speed { display: grid; gap: 18px; margin: 10px 0 4px; }
 .speed__row { display: grid; grid-template-columns: 40px 1fr 104px; align-items: center; gap: 14px; font-family: var(--font-mono); font-size: 12px; color: var(--text-2); }
 .speed__row b { font-weight: 500; color: var(--text); text-align: right; font-variant-numeric: tabular-nums; }
 .range { position: relative; height: 10px; border-radius: 999px; background: var(--line); }
-.range i {
-  position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--accent);
-  left: calc((var(--lo) - 1) / 13 * 100%); width: 0;
-  transition: width 1.4s var(--ease-out) .25s;
-}
-[data-reveal].is-in .range i { width: calc((var(--hi) - var(--lo)) / 13 * 100%); }
-.speed__axis { display: flex; justify-content: space-between; padding: 0 118px 0 54px; font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); }
+.range i { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--accent); left: calc((var(--lo) - 1) / 13 * 100%); width: calc((var(--hi) - var(--lo)) / 13 * 100%); }
 .tile code { font-family: var(--font-mono); font-size: .9em; color: var(--text-2); }
 
 /* ---------- Experience timeline ---------- */
